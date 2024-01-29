@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const prototype_1 = require("./prototype");
+const baseCircle = new prototype_1.Circle(5);
+const baseSquare = new prototype_1.Square(10);
+const baseRectangle = new prototype_1.Rectangle(10, 30);
+const cloneCircle = baseCircle.clone();
+const cloneSquare = baseSquare.clone();
+const cloneRectangle = baseRectangle.clone();
+console.log({ cloneCircle, cloneSquare, cloneRectangle });
+console.log("same square ", baseSquare === cloneSquare);
+console.log("same rectangle ", baseRectangle === cloneRectangle);
+console.log("same circle ", baseCircle === cloneCircle);

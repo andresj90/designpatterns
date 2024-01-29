@@ -1,0 +1,16 @@
+{
+  "name": "designpatterns",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "andresj90",
+  "license": "ISC",
+  "dependencies": {
+    "core-js-bundle": "^3.35.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}

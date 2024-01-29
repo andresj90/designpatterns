@@ -1,0 +1,10 @@
+"use strict";
+var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+const RoadTransportConcreteCreator_1 = require("./RoadTransportConcreteCreator");
+const AirTransportConcreteCreator_1 = require("./AirTransportConcreteCreator");
+const transportationDictionary = new Map();
+const transportation = (_a = transportationDictionary.get("truck")) !== null && _a !== void 0 ? _a : new RoadTransportConcreteCreator_1.RoadTransportationCreator().createTransportation("truck");
+transportation.deliver();
+const transportation2 = new AirTransportConcreteCreator_1.AirTransportationCreator().createTransportation("balloon");
+transportation2.deliver();

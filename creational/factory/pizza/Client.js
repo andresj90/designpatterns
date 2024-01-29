@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const PizzaFactory_1 = require("./PizzaFactory");
+const PizzaShop_1 = require("./PizzaShop");
+const pizzaFactory = new PizzaFactory_1.PizzaFactory();
+const pizzaShop = new PizzaShop_1.PizzaShop(pizzaFactory);
+const pizza1 = pizzaShop.orderPizza("hawaian");
+const pizza2 = pizzaShop.orderPizza("napolitan");
+const pizza3 = pizzaShop.orderPizza("cheese");
+console.log({ pizza1, pizza2, pizza3 });

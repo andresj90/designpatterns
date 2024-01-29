@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Car_Builder_1 = require("./Car_Builder");
+const Director_1 = require("./Director");
+const carDirector = new Director_1.Director();
+const carBuilder = new Car_Builder_1.CarBuilder();
+carDirector.MakeSportCar(carBuilder);
+const sportCar = carBuilder.getResult();
+console.log({ sportCar });
+carDirector.MakeVanCar(carBuilder);
+const vanCar = carBuilder.getResult();
+console.log({ vanCar });
+console.log({ sportCar, isSameCar: vanCar === sportCar });

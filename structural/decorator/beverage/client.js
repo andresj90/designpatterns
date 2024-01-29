@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const DarkRoast_1 = require("./DarkRoast");
+const Decaf_1 = require("./Decaf");
+const Espresso_1 = require("./Espresso");
+const HouseBlend_1 = require("./HouseBlend");
+const Mocha_1 = require("./Mocha");
+const Soy_1 = require("./Soy");
+const Whip_1 = require("./Whip");
+const expresso = new Espresso_1.Espresso();
+const darkRoast = new DarkRoast_1.DarkRoast();
+const decaf = new Decaf_1.Decaf();
+const houseBlend = new HouseBlend_1.HouseBlend();
+console.log({ expresso, darkRoast, decaf, houseBlend }); //
+let beverage = new Espresso_1.Espresso();
+beverage = new Mocha_1.MochaDecorator(beverage);
+beverage = new Soy_1.SoyDecorator(beverage);
+beverage = new Whip_1.WhipDecorator(beverage);
+beverage = new Mocha_1.MochaDecorator(beverage);
+console.log({ mochaDecorator: { description: beverage.description, cost: beverage.cost } });
