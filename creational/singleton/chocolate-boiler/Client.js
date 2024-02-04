@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ChocolateBoiler_1 = require("./ChocolateBoiler");
+var chocolateBoiler1 = ChocolateBoiler_1.ChocolateBoiler.getInstance();
+var chocolateBoiler2 = ChocolateBoiler_1.ChocolateBoiler.getInstance();
+console.log({ chocolateBoiler2: chocolateBoiler2 });
+chocolateBoiler1.fill();
+console.log({ chocolateBoiler1: chocolateBoiler1, chocolateBoiler2: chocolateBoiler2 });
+chocolateBoiler2.boil();
+console.log({ chocolateBoiler1: chocolateBoiler1, chocolateBoiler2: chocolateBoiler2 });
+chocolateBoiler1.drain();
+console.log({ chocolateBoiler1: chocolateBoiler1, chocolateBoiler2: chocolateBoiler2 });
+console.log("are equal : ", chocolateBoiler1 === chocolateBoiler2);
