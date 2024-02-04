@@ -1,5 +1,5 @@
 import { Pizza } from "./Pizza";
-import { PizzaIngredientFactory } from "./PizzaIngredientFactory";
+import { PizzaIngredientFactory } from "../ingredient-factory/PizzaIngredientFactory";
 
 /**
  * 

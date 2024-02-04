@@ -1,11 +1,11 @@
 
 
-import { Cheese } from "./Cheese";
-import { Clam } from "./Clam";
-import { Dough } from "./Dough";
-import { Pepperoni } from "./Pepperoni";
-import { Sauce } from "./Sauce";
-import { Veggie } from "./Veggie";
+import { Cheese } from "../ingredients/Cheese";
+import { Clam } from "../ingredients/Clam";
+import { Dough } from "../ingredients/Dough";
+import { Pepperoni } from "../ingredients/Pepperoni";
+import { Sauce } from "../ingredients/Sauce";
+import { Veggie } from "../ingredients/Veggie";
 
 /**
  * PizzaIngredientFactory is implemented as an

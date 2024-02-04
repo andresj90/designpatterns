@@ -1,11 +1,11 @@
-import { BlackOlive } from "./BlackOlive";
-import { FrozenClam } from "./FrozenClam";
-import { MozzarellaCheese } from "./MozzarellaCheese";
+import { BlackOlive } from "../ingredients/BlackOlive";
+import { FrozenClam } from "../ingredients/FrozenClam";
+import { MozzarellaCheese } from "../ingredients/MozzarellaCheese";
 import { PizzaIngredientFactory } from "./PizzaIngredientFactory";
-import { PlumTomatoSauce } from "./PlumTomatoSauce";
-import { SlicePepperoni } from "./SlicePepperoni";
-import { Spinach } from "./Spinach";
-import { ThickCrustDough } from "./ThickCrustDough";
+import { PlumTomatoSauce } from "../ingredients/PlumTomatoSauce";
+import { SlicePepperoni } from "../ingredients/SlicePepperoni";
+import { Spinach } from "../ingredients/Spinach";
+import { ThickCrustDough } from "../ingredients/ThickCrustDough";
 
 export class ChicagoPizzaIngridientFactory implements PizzaIngredientFactory {
     createDough = () =>  new ThickCrustDough(); 
