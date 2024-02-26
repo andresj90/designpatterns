@@ -7,7 +7,7 @@ import { Light } from "./Light";
     object, which is the light we
     are controlling.
  */
-export class LightCommand implements ICommand {
+export class LightOnCommand implements ICommand {
     private light : Light; 
     
     public constructor(light : Light) {
