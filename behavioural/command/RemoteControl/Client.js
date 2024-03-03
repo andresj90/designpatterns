@@ -9,6 +9,7 @@ var GarageDoorReceiver_1 = require("./GarageDoorReceiver");
 var Light_1 = require("./Light");
 var LightOffCommand_1 = require("./LightOffCommand");
 var LightOnCommand_1 = require("./LightOnCommand");
+var MacroCommand_1 = require("./MacroCommand");
 var RemoteControlInvoker_1 = require("./RemoteControlInvoker");
 var Stereo_1 = require("./Stereo");
 var StereoOffForCdCommand_1 = require("./StereoOffForCdCommand");
@@ -18,7 +19,6 @@ var StereoOnForCdCommand_1 = require("./StereoOnForCdCommand");
  */
 var Client = /** @class */ (function () {
     function Client() {
-        this.remoteControl = new RemoteControlInvoker_1.RemoteControl();
     }
     /*
     //test case for light command
@@ -38,35 +38,59 @@ var Client = /** @class */ (function () {
     }
     */
     Client.prototype.test1 = function () {
-        var _this = this;
+        var remoteControl = new RemoteControlInvoker_1.RemoteControl();
         var light = new Light_1.Light();
         var lightOnCommand = new LightOnCommand_1.LightOnCommand(light);
         var lightOffCommand = new LightOffCommand_1.LightOffCommand(light);
         //living room light
-        this.remoteControl.setCommand(0, lightOnCommand, lightOffCommand);
+        remoteControl.setCommand(0, lightOnCommand, lightOffCommand);
         //kitchen light
-        this.remoteControl.setCommand(1, lightOnCommand, lightOffCommand);
+        remoteControl.setCommand(1, lightOnCommand, lightOffCommand);
         var ceeling = new Ceeling_1.Ceeling();
         var ceelingFanOffCommand = new CeelingFanOffCommand_1.CeelingFanOffCommand(ceeling);
         var ceelingFanOnCommand = new CeelingFanHighCommand_1.CeelingFanHighommand(ceeling);
         // living room ceeling fan
-        this.remoteControl.setCommand(2, ceelingFanOnCommand, ceelingFanOffCommand);
+        remoteControl.setCommand(2, ceelingFanOnCommand, ceelingFanOffCommand);
         var garageDoor = new GarageDoorReceiver_1.GarageDoor();
         var garageDoorOpenCommand = new GarageDoorOpenCommand_1.GarageDoorOpenCommand(garageDoor);
         var garageDoorCloseCommand = new GarageDoorCloseCommand_1.GarageDoorCloseCommand(garageDoor);
         // garage door 
-        this.remoteControl.setCommand(3, garageDoorOpenCommand, garageDoorCloseCommand);
+        remoteControl.setCommand(3, garageDoorOpenCommand, garageDoorCloseCommand);
         var stereo = new Stereo_1.Stereo();
         var stereoOnCommand = new StereoOnForCdCommand_1.StereoOnForCd(stereo);
         var stereoOffCommand = new StereoOffForCdCommand_1.StereoOffForCd(stereo);
         // garage door 
-        this.remoteControl.setCommand(4, stereoOnCommand, stereoOffCommand);
-        this.remoteControl.getSlotList().forEach(function (_, index) {
-            _this.remoteControl.onButtonPress(index);
-            _this.remoteControl.offButtonPress(index);
+        remoteControl.setCommand(4, stereoOnCommand, stereoOffCommand);
+        remoteControl.getSlotList().forEach(function (_, index) {
+            remoteControl.onButtonPress(index);
+            remoteControl.getLastCommand();
+            remoteControl.offButtonPress(index);
+            remoteControl.getLastCommand();
         });
+    };
+    Client.prototype.testMacroCommand = function () {
+        var remoteControl = new RemoteControlInvoker_1.RemoteControl();
+        var light = new Light_1.Light();
+        var lightOnCommand = new LightOnCommand_1.LightOnCommand(light);
+        var lightOffCommand = new LightOffCommand_1.LightOffCommand(light);
+        var ceeling = new Ceeling_1.Ceeling();
+        var ceelingFanOffCommand = new CeelingFanOffCommand_1.CeelingFanOffCommand(ceeling);
+        var ceelingFanOnCommand = new CeelingFanHighCommand_1.CeelingFanHighommand(ceeling);
+        var garageDoor = new GarageDoorReceiver_1.GarageDoor();
+        var garageDoorOpenCommand = new GarageDoorOpenCommand_1.GarageDoorOpenCommand(garageDoor);
+        var garageDoorCloseCommand = new GarageDoorCloseCommand_1.GarageDoorCloseCommand(garageDoor);
+        var stereo = new Stereo_1.Stereo();
+        var stereoOnCommand = new StereoOnForCdCommand_1.StereoOnForCd(stereo);
+        var stereoOffCommand = new StereoOffForCdCommand_1.StereoOffForCd(stereo);
+        var macroOnCommands = new MacroCommand_1.MacroCommand([lightOnCommand, ceelingFanOnCommand, garageDoorOpenCommand, stereoOnCommand]);
+        var macroOffCommands = new MacroCommand_1.MacroCommand([lightOffCommand, ceelingFanOffCommand, garageDoorCloseCommand, stereoOffCommand]);
+        remoteControl.setCommand(0, macroOnCommands, macroOffCommands);
+        remoteControl.onButtonPress(0);
+        remoteControl.offButtonPress(0);
+        remoteControl.undo();
     };
     return Client;
 }());
 var client = new Client();
 client.test1();
+client.testMacroCommand();

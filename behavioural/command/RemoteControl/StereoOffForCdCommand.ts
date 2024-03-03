@@ -7,6 +7,9 @@ export class StereoOffForCd implements ICommand {
     public constructor(stereo: Stereo) {
         this.stereo = stereo;
     }
+    public undo(): void {
+        this.stereo.on();
+    }
     public execute(){
         this.stereo.off();
     }

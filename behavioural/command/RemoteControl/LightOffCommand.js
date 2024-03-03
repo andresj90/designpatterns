@@ -5,6 +5,9 @@ var LightOffCommand = /** @class */ (function () {
     function LightOffCommand(light) {
         this.light = light;
     }
+    LightOffCommand.prototype.undo = function () {
+        this.light.on();
+    };
     LightOffCommand.prototype.execute = function () {
         this.light.off();
     };

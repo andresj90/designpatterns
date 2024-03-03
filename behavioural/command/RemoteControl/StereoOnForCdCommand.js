@@ -5,6 +5,9 @@ var StereoOnForCd = /** @class */ (function () {
     function StereoOnForCd(stereo) {
         this.stereo = stereo;
     }
+    StereoOnForCd.prototype.undo = function () {
+        this.stereo.off();
+    };
     StereoOnForCd.prototype.execute = function () {
         this.stereo.on();
     };

@@ -5,6 +5,10 @@ var CeelingFanOffCommand = /** @class */ (function () {
     function CeelingFanOffCommand(ceeling) {
         this.ceeling = ceeling;
     }
+    CeelingFanOffCommand.prototype.undo = function () {
+        this.ceeling.high();
+    };
+    ;
     CeelingFanOffCommand.prototype.execute = function () {
         this.ceeling.off();
     };

@@ -5,6 +5,11 @@ var GarageDoorOpenCommand = /** @class */ (function () {
     function GarageDoorOpenCommand(garageDoor) {
         this.garageDoor = garageDoor;
     }
+    GarageDoorOpenCommand.prototype.undo = function () {
+        this.garageDoor.lightOff();
+        this.garageDoor.down();
+        this.garageDoor.stop();
+    };
     GarageDoorOpenCommand.prototype.execute = function () {
         this.garageDoor.lightOn();
         this.garageDoor.up();

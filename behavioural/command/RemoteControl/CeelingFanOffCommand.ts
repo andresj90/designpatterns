@@ -6,6 +6,10 @@ export class CeelingFanOffCommand implements ICommand {
     public constructor(ceeling: Ceeling) {
         this.ceeling = ceeling;
     }
+    public undo() {
+        this.ceeling.high();
+    }; 
+
     public execute(){
         this.ceeling.off();
     }

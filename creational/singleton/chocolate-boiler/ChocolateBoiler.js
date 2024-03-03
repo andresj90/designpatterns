@@ -1,41 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChocolateBoiler = void 0;
-var ChocolateBoiler = /** @class */ (function () {
-    function ChocolateBoiler() {
+class ChocolateBoiler {
+    constructor() {
         this.isEmpty = true;
         this.isBoiled = false;
     }
-    ChocolateBoiler.getInstance = function () {
+    static getInstance() {
         if (!this.chocolateBoiler) {
             return this.chocolateBoiler = new ChocolateBoiler();
         }
         return this.chocolateBoiler;
-    };
-    ChocolateBoiler.prototype.boil = function () {
+    }
+    boil() {
         if (!this.isEmpty && !this.isBoiled) {
             this.isBoiled = true;
         }
-    };
-    ChocolateBoiler.prototype.drain = function () {
+    }
+    drain() {
         if (!this.isEmpty && this.isBoiled) {
             this.isEmpty = true;
             this.isBoiled = false;
         }
-    };
-    ChocolateBoiler.prototype.fill = function () {
+    }
+    fill() {
         if (this.isEmpty) {
             this.isEmpty = false;
             this.isBoiled = false;
         }
-    };
-    ChocolateBoiler.prototype.getIsEmpty = function () {
+    }
+    getIsEmpty() {
         return this.isEmpty;
-    };
-    ChocolateBoiler.prototype.getIsBoiled = function () {
+    }
+    getIsBoiled() {
         return this.isBoiled;
-    };
-    ChocolateBoiler.chocolateBoiler = null;
-    return ChocolateBoiler;
-}());
+    }
+}
 exports.ChocolateBoiler = ChocolateBoiler;
+ChocolateBoiler.chocolateBoiler = null;
